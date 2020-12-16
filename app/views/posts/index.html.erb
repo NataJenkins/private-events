@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% check %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+
+<% else %>
+  <%= link_to('Login', new_user_session_path) %>
+
+<% end %>

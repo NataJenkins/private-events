@@ -1,24 +1,83 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Re-Former
 
-Things you may want to cover:
+The project is based on Authentication, meaning if a user is logged in
+will have the ability to create a new post, if the user is not logged in
+he won't be able to
 
-* Ruby version
 
-* System dependencies
+## Built With
+- Ruby
+- Ruby on rails
+- SQLite3
 
-* Configuration
+## Pre-requisites
+- Ruby 2.7.0
+- Rails gem
+- Bundle
 
-* Database creation
+### Setup
 
-* Database initialization
+-Open your terminal and go to the directory where you want to clone the repo.
 
-* How to run the test suite
+-Clone the repository to your local machine. 
+```
+git clone https://github.com/NataJenkins/members-only
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+-Go to the root directory. 
+```
+cd members-only
+```
 
-* Deployment instructions
+-Install the necessary gems to run the project. 
+```
+bundle install
+```
 
-* ...
+- Also please run this command to run all the migration for the database and have all tables updated and read to use 
+```
+rails db:migrate
+```
+
+-Now your environment is ready to run the project. Type:
+```
+rails server
+```
+
+
+## Authors
+
+👤 **Natalia Macias** 
+
+- Github: [@NataJenkins](https://github.com/NataJenkins)
+- Twitter: [@NataJenkins](https://twitter.com/NataJenkins)
+- Linkedin: [linkedin Profile](https://www.linkedin.com/in/natalia-macias-a11a20187/)
+
+👤 **Mauricio Tabilo**
+
+- Github: [@Nexch](https://github.com/Nexch)
+- Twitter: [@@MfinchT](https://twitter.com/MfinchT)
+- Linkedin: [linkedin](https://www.linkedin.com/in/Nexch)
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/karmaester/re-former/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- The Odin Project
+- Rails guides
+- Microverse
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
