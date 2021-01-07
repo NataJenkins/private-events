@@ -2,9 +2,8 @@
 
 # Re-Former
 
-The project is based on Authentication, meaning if a user is logged in
-will have the ability to create a new post, if the user is not logged in
-he won't be able to
+The project is based on Asociations, meaning if a user is logged in
+will be able to create events and invite users to it. The users must be logged to create and accept the events
 
 
 ## Built With
@@ -23,12 +22,12 @@ he won't be able to
 
 -Clone the repository to your local machine. 
 ```
-git clone https://github.com/NataJenkins/members-only
+git clone https://github.com/NataJenkins/private-events
 ```
 
 -Go to the root directory. 
 ```
-cd members-only
+cd private-events
 ```
 
 -Install the necessary gems to run the project. 
