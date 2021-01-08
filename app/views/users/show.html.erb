@@ -2,7 +2,7 @@
 
 <% @event.each do |user|%>
   <tr>
-    <% if user.user_id == current_user.id %>
+    <% if user.creator_id == current_user.id %>
       <% if user.date > Time.zone.now %>
         <p> Future </p>
       <% else %>

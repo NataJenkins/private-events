@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :lockable, :timeoutable, :confirmable and :activatable
 
   # Setup accessible (or protected) attributes for your model
-  has_many :events
+  has_many :created_events, foreign_key: "creator_id", class_name: "Event"
   has_many :attendees
+  has_many :attended_events, through: :attendees, foreign_key: "event_id", source: :event
 end
