@@ -30,5 +30,4 @@ RSpec.describe 'user', type: :feature do
 
     expect(page).to have_content('Invalid Email or password.')
   end
-
 end
