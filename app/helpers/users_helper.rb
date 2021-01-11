@@ -1,37 +1,27 @@
+# rubocop:disable Style/GuardClause
+
 module UsersHelper
   def timer(creator, user, c_date, lol)
     if creator == user
       if c_date > Time.zone.now
-
+        nil
       else
-        return lol
+        lol
       end
-    else
-
     end
   end
 
   def timer2(creator, user, c_date, lol)
-    if creator == user
-      if c_date > Time.zone.now
-        lol
-      else
-
-      end
-    else
-
-    end
+    lol if creator == user && c_date > Time.zone.now
   end
 
   def if_nil(lol)
-    array = Array.new
+    array = []
     lol.each do |meme|
-      if meme != nil
-        array.push(meme)
-      else
-
-      end
+      array.push(meme) unless meme.nil?
     end
-    return array
+    array
   end
 end
+
+# rubocop:enable Style/GuardClause
