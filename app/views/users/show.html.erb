@@ -1,19 +1,40 @@
 <%= @user.email %>
-
+<% past = Array.new %>
+<% future = Array.new %>
 <% @event.each do |user|%>
-  <tr>
+<table>
+<tbody>
+
     <% if user.creator_id == current_user.id %>
       <% if user.date > Time.zone.now %>
-        <p> Future </p>
+        <% future.push(user) %>
       <% else %>
-        <p> Past </p>
+        <% past.push(user) %>
       <% end %>
 
-      <p><%= user.date %></p>
 
     <% else %>
       <p></p>
     <% end %>
-  </tr>
 <% end %>
+
+    <% future.each do |shark| %>
+    <tr>
+      <td><%= shark.date %></td>
+      <td><%= link_to 'Show', shark %></td>
+      <td>Future</td>
+    </tr>
+    <% end %>
+
+
+    <% past.each do |shark| %>
+    <tr>
+      <td><%= shark.date %></td>
+      <td><%= link_to 'Show', shark %></td>
+      <td>Past</td>
+    </tr>
+    <% end %>
+
+</tbody>
+</table>
 <%= link_to 'Back', root_path %>

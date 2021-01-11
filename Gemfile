@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'rspec', '~> 3.10'
 gem 'rspec-rails', '~> 4.0.0'
 gem 'rubocop', '~>0.81.0'
-gem 'wdm', '>= 0.1.0'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
