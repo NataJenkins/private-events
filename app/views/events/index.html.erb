@@ -11,21 +11,34 @@
   </thead>
 
   <tbody>
+    <% past = Array.new %>
+    <% future = Array.new %>
     <% @events.each do |event| %>
-      <tr>
-        <td>
-          <% if event.date > Time.zone.now %>
-            <p> "future"</p>
-          <% else %>
-            <p> "past" </p>
-          <% end %>
-          <%= event.date %></td>
 
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% if event.date > Time.zone.now %>
+        <% future.push(event) %>
+      <% else %>
+        <% past.push(event) %>
+      <% end %>
+    <% end %>
+
+    <% past.each do |shark| %>
+      <tr>
+          <td><%= shark.date %></td>
+          <td><%= link_to 'Show', shark %></td>
+          <td>Past</td>
+
       </tr>
     <% end %>
+
+
+        <% future.each do |shark| %>
+        <tr>
+          <td><%= shark.date %></td>
+          <td><%= link_to 'Show', shark %></td>
+          <td>Future</td>
+        </tr>
+        <% end %>
   </tbody>
 </table>
 
