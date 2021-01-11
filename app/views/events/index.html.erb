@@ -22,21 +22,22 @@
       <% end %>
     <% end %>
 
+    <td><strong> Past <strong></td>
     <% past.each do |shark| %>
       <tr>
           <td><%= shark.date %></td>
           <td><%= link_to 'Show', shark %></td>
-          <td>Past</td>
+
 
       </tr>
     <% end %>
 
-
+        <td><strong> Future <strong></td>
         <% future.each do |shark| %>
         <tr>
           <td><%= shark.date %></td>
           <td><%= link_to 'Show', shark %></td>
-          <td>Future</td>
+
         </tr>
         <% end %>
   </tbody>

@@ -4,37 +4,38 @@
 <% @event.each do |user|%>
 <table>
 <tbody>
+  <% past.push(timer(user.creator_id, current_user.id, user.date, user)) %>
+  <% future.push(timer2(user.creator_id, current_user.id, user.date, user)) %>
 
-    <% if user.creator_id == current_user.id %>
-      <% if user.date > Time.zone.now %>
-        <% future.push(user) %>
-      <% else %>
-        <% past.push(user) %>
+<% end %>
+  <tr>
+    <td><strong> Future <strong></td>
+    <% future = if_nil(future) %>
+    <% future.each do |lol| %>
+      <td><%= lol.date %> </td>
+      <td><%= link_to 'show', lol %></td>
+    <% end %>
+  </tr>
+
+  <tr>
+    <td><strong> Past <strong></td>
+    <% past = if_nil(past) %>
+    <% past.each do |lol| %>
+      <td><%= lol.date %> </td>
+      <td><%= link_to 'show', lol %></td>
+    <% end %>
+  </tr>
+
+
+    <tr>
+      <td><strong> Attend <strong></td>
+      <% @user.attendees.each do |meme| %>
+      <td><%= meme.event.date %></td>
+      <td><%= link_to 'show', meme.event %></td>
       <% end %>
 
-
-    <% else %>
-      <p></p>
-    <% end %>
-<% end %>
-
-    <% future.each do |shark| %>
-    <tr>
-      <td><%= shark.date %></td>
-      <td><%= link_to 'Show', shark %></td>
-      <td>Future</td>
     </tr>
-    <% end %>
 
-
-    <% past.each do |shark| %>
-    <tr>
-      <td><%= shark.date %></td>
-      <td><%= link_to 'Show', shark %></td>
-      <td>Past</td>
-    </tr>
-    <% end %>
-
-</tbody>
+    </tbody>
 </table>
 <%= link_to 'Back', root_path %>
