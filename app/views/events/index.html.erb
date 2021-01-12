@@ -14,15 +14,12 @@
     <% past = Array.new %>
     <% future = Array.new %>
     <% @events.each do |event| %>
-
-      <% if event.date > Time.zone.now %>
-        <% future.push(event) %>
-      <% else %>
-        <% past.push(event) %>
-      <% end %>
+        <% past.push(timer(event.creator_id, current_user.id, event.date, event)) %>
+        <% future.push(timer2(event.creator_id, current_user.id, event.date, event)) %>
     <% end %>
 
     <td><strong> Past <strong></td>
+    <% past = if_nil(past) %>
     <% past.each do |shark| %>
       <tr>
           <td><%= shark.date %></td>
@@ -33,6 +30,7 @@
     <% end %>
 
         <td><strong> Future <strong></td>
+        <% future = if_nil(past) %>
         <% future.each do |shark| %>
         <tr>
           <td><%= shark.date %></td>
