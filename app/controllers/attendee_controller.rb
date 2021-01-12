@@ -5,6 +5,7 @@ class AttendeeController < ApplicationController
     # current_user.attendees.include?(lol)
     if meme.empty?
       @attend.save
+      redirect_back(fallback_location: root_path) 
     else
       puts('error')
     end
