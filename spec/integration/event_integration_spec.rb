@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating a event', type: :feature do
-  scenario 'event' do
+  scenario 'valid input' do
     visit new_user_registration_path
     fill_in 'Email', with: 'test@test.com'
     fill_in 'Password', with: '123456'
