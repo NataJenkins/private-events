@@ -14,8 +14,8 @@
     <% past = Array.new %>
     <% future = Array.new %>
     <% @events.each do |event| %>
-        <% past.push(timer(event.creator_id, current_user.id, event.date, event)) %>
-        <% future.push(timer2(event.creator_id, current_user.id, event.date, event)) %>
+        <% past.push(timer_e(event.date, event)) %>
+        <% future.push(timer2_e(event.date, event)) %>
     <% end %>
 
     <td><strong> Past <strong></td>
@@ -30,7 +30,7 @@
     <% end %>
 
         <td><strong> Future <strong></td>
-        <% future = if_nil(past) %>
+        <% future = if_nil(future) %>
         <% future.each do |shark| %>
         <tr>
           <td><%= shark.date %></td>
