@@ -1,3 +1,4 @@
+# rubocop:disable Style/GuardClause
 module EventsHelper
   def timer(creator, user, c_date, lol)
     if creator == user
@@ -20,5 +21,5 @@ module EventsHelper
     end
     array
   end
-
 end
+# rubocop:enable Style/GuardClause
