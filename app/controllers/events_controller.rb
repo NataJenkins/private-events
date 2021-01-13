@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     if @event.save
       puts('try again')
     else
-      render :new
+
     end
 
     respond_to do |format|
@@ -37,7 +37,8 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+
+        format.html { redirect_to new_event_path }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
