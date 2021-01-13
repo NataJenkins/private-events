@@ -26,11 +26,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.created_events.build(event_params)
-    if @event.save
-      puts('try again')
-    else
-
-    end
+    puts('try again') if @event.save
 
     respond_to do |format|
       if @event.save
