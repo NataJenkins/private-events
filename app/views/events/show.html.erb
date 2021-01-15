@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>USER:</strong>
+  <strong><%= @event.creator.email %></strong>
+</p>
+
+<% @events.each do |event| %>
+      <tr>
+        <td>
+            <% if event.id.to_i == params[:id].to_i %>
+              <% event.attendees.each do |lol| %>
+                <%= lol.user.email %> <br>
+              <% end %>
+            <% else %>
+            <% end %>
+        </td>
+      </tr>
+<% end %>
+
+<%= form_with model: @attend, url: attendee_index_path do |form| %>
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :event_id, :value => params[:id] %>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

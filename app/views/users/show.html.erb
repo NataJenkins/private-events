@@ -1,0 +1,47 @@
+<%= @user.email %>
+<% past = Array.new %>
+<% future = Array.new %>
+<% @event.each do |user|%>
+<table>
+<tbody>
+  <% past.push(timer(user.creator_id, current_user.id, user.date, user)) %>
+  <% future.push(timer2(user.creator_id, current_user.id, user.date, user)) %>
+
+<% end %>
+  <td>
+    <td><strong> Future <strong></td>
+    <% future = if_nil(future) %>
+    <% future.each do |lol| %>
+      <tr>
+      <td><%= lol.date %> </td>
+      <td><%= link_to 'show', lol %></td>
+      </tr>
+    <% end %>
+  </td>
+
+  <td>
+    <td><strong> Past <strong></td>
+    <% past = if_nil(past) %>
+    <% past.each do |lol| %>
+      <tr>
+      <td><%= lol.date %> </td>
+      <td><%= link_to 'show', lol %></td>
+      </tr>
+    <% end %>
+  </td>
+
+
+    <td>
+      <td><strong> Attend <strong></td>
+      <% @user.attendees.each do |meme| %>
+      <tr>
+      <td><%= meme.event.date %></td>
+      <td><%= link_to 'show', meme.event %></td>
+      </tr>
+      <% end %>
+
+    </td>
+
+    </tbody>
+</table>
+<%= link_to 'Back', root_path %>
